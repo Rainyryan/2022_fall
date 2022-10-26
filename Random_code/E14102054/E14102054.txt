@@ -1,0 +1,44 @@
+1-a
+int max = 0; cin >> max;
+int values[max] = 0; //正確： int* values = new int[max]; //delete[] values; <- when we don't need the array anymore
+說明：
+max may not be initiated before values, so we will get an error.
+dynamically declare the array with pointer and delete it after use.
+
+1-b
+float temperatures[5];  //正確：float temperatures[5] = {30.7, 32.2, 35.2, 36.5, 44.0};
+temperatures[5] = {30.7, 32.2, 35.2, 36.5, 44.0}; //這行不需要
+說明：
+temperatures[5] gives a int value that is out of range, not the array.
+we should initiate temperatures when declaring it.
+
+2-a
+beans 80 bytes
+words 500 bytes
+str 96 bytes
+
+2-b
+cout<<sizeof(beans)<<'\n';
+cout<<sizeof(words)<<'\n';
+cout<<sizeof(str)<<'\n';
+
+2-c
+beans is 8 bytes * 10 elements
+words is 1 bytes * 10 * 50 elements
+str is 24 (default size) * 4 elements
+
+2-d
+beans[5] 8 bytes
+words[5] 50 bytes
+str[5] 24 bytes
+
+2-e
+cout<<sizeof(beans[5])<<'\n';
+cout<<sizeof(words[5])<<'\n';
+cout<<sizeof(str[5])<<'\n';
+
+2-f
+beans[5] is just the size of a double, 8 bytes
+words[5] is size of a char[50] array, 1 bytes * 50 elements = 50 bytes
+str[5] is the default size for string (char array), 1 byte * 24 elements = 24 bytes
+
